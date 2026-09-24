@@ -12,16 +12,18 @@ static inline void outb(u16 port, u8 val) {
 }
 
 void irq_handler(struct registers regs) {
-  if (regs.int_no == 32) { // IRQ0, post-remap = PIT timer
-    pit_tick();
-  }
-
-  if (regs.int_no == 33) { // IRQ1 = keyboard
-    keyboard_handler();
-  }
-
+  // EOI first, unconditionally — pit_tick() below may switch tasks and
+  // never return to this exact point until this task's turn comes again,
+  // so anything after a possible switch is unsafe to rely on.
   if (regs.int_no >= 40) {
     outb(PIC2_COMMAND, PIC_EOI);
   }
   outb(PIC1_COMMAND, PIC_EOI);
+
+  if (regs.int_no == 32) {
+    pit_tick();
+  }
+  if (regs.int_no == 33) {
+    keyboard_handler();
+  }
 }

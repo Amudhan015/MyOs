@@ -1,5 +1,6 @@
 #include <kernel/int.h>
 #include <kernel/pit.h>
+#include <kernel/task.h>
 
 #define PIT_CHANNEL0_DATA 0x40
 #define PIT_COMMAND 0x43
@@ -21,6 +22,9 @@ void pit_init(u32 frequency_hz) {
   outb(PIT_CHANNEL0_DATA, (u8)((divisor >> 8) & 0xFF));
 }
 
-void pit_tick(void) { tick_count++; }
+void pit_tick(void) {
+  tick_count++;
+  schedule();
+}
 
 u32 pit_get_ticks(void) { return tick_count; }
