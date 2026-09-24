@@ -1,6 +1,7 @@
 #include <kernel/gdt.h>
 #include <kernel/idt.h>
 #include <kernel/multiboot.h>
+#include <kernel/paging.h>
 #include <kernel/pic.h>
 #include <kernel/pmm.h>
 #include <kernel/serial.h>
@@ -13,10 +14,11 @@ void kernel_main(struct multiboot_info *mb_info) {
   serial_initialize();
 
   terminal_initialize();
-  terminal_set_cursor_shape(0, 15); // full-height block
+  // terminal_set_cursor_shape(0, 15); // full-height block
   terminal_writestring("Hello, kernel!\n");
 
   pmm_init(mb_info);
+  paging_init();
 
   pic_unmask_irq(0);
   pic_unmask_irq(1);

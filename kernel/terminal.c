@@ -105,6 +105,7 @@ static void newline(void) {
 void terminal_initialize(void) {
   for (int i = 0; i < SCROLLBACK_LINES; i++)
     clear_row(i);
+  terminal_set_cursor_shape(0, 15);
   write_row = 0;
   write_col = 0;
   view_offset = 0;
