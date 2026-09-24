@@ -1,10 +1,10 @@
-#include <stdint.h>
+#include <kernel/int.h>
 
 struct registers {
-  uint32_t ds;
-  uint32_t edi, esi, ebp, esp, ebx, edx, ecx, eax;
-  uint32_t int_no, err_code;
-  uint32_t eip, cs, eflags, useresp, ss;
+  u32 ds;
+  u32 edi, esi, ebp, esp, ebx, edx, ecx, eax;
+  u32 int_no, err_code;
+  u32 eip, cs, eflags, useresp, ss;
 };
 
 static const char *exception_messages[] = {"Division By Zero",
@@ -41,11 +41,11 @@ static const char *exception_messages[] = {"Division By Zero",
                                            "Reserved"};
 
 void isr_handler(struct registers regs) {
-  volatile uint16_t *vga = (uint16_t *)0xB8000;
+  volatile u16 *vga = (u16 *)0xB8000;
   const char *msg = exception_messages[regs.int_no];
 
   for (int i = 0; msg[i] != '\0'; i++) {
-    vga[80 + i] = (uint16_t)msg[i] | (0x4F << 8);
+    vga[80 + i] = (u16)msg[i] | (0x4F << 8);
   }
 
   for (;;) {

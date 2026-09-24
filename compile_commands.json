@@ -70,5 +70,23 @@
     "directory": "/home/amudhan/projects/myos",
     "file": "/home/amudhan/projects/myos/kernel/isr.c",
     "output": "/home/amudhan/projects/myos/kernel/isr.o"
+  },
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "kernel/pic.o",
+      "kernel/pic.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/pic.c",
+    "output": "/home/amudhan/projects/myos/kernel/pic.o"
   }
 ]

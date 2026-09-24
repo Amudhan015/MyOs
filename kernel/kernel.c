@@ -1,12 +1,14 @@
 #include <kernel/gdt.h>
 #include <kernel/idt.h>
+#include <kernel/pic.h>
 
 void kernel_main(void) {
   gdt_install();
   idt_install();
+  pic_remap();
 
-  volatile uint16_t *vga = (uint16_t *)0xB8000;
-  const uint16_t blank = ((uint16_t)' ') | (0x0F << 8);
+  volatile u16 *vga = (u16 *)0xB8000;
+  const u16 blank = ((u16)' ') | (0x0F << 8);
 
   for (int i = 0; i < 80 * 25; i++) {
     vga[i] = blank;
@@ -14,6 +16,6 @@ void kernel_main(void) {
 
   const char *msg = "Hello, kernel!";
   for (int i = 0; msg[i] != '\0'; i++) {
-    vga[i] = (uint16_t)msg[i] | (0x0F << 8);
+    vga[i] = (u16)msg[i] | (0x0F << 8);
   }
 }

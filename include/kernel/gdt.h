@@ -1,20 +1,20 @@
 #ifndef GDT_H
 #define GDT_H
 
-#include <stdint.h>
+#include "int.h"
 
 struct gdt_entry {
-  uint16_t limit_low;
-  uint16_t base_low;
-  uint8_t base_middle;
-  uint8_t access;
-  uint8_t granularity;
-  uint8_t base_high;
+  u16 limit_low;
+  u16 base_low;
+  u8 base_middle;
+  u8 access;
+  u8 granularity;
+  u8 base_high;
 } __attribute__((packed));
 
 struct gdt_ptr {
-  uint16_t limit;
-  uint32_t base;
+  u16 limit;
+  u32 base;
 } __attribute__((packed));
 
 void gdt_install(void);
