@@ -1,4 +1,0 @@
--target
-i686-elf
--ffreestanding
--Iinclude
