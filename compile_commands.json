@@ -1,0 +1,74 @@
+[
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "kernel/kernel.o",
+      "kernel/kernel.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/kernel.c",
+    "output": "/home/amudhan/projects/myos/kernel/kernel.o"
+  },
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "kernel/gdt.o",
+      "kernel/gdt.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/gdt.c",
+    "output": "/home/amudhan/projects/myos/kernel/gdt.o"
+  },
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "kernel/idt.o",
+      "kernel/idt.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/idt.c",
+    "output": "/home/amudhan/projects/myos/kernel/idt.o"
+  },
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "kernel/isr.o",
+      "kernel/isr.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/isr.c",
+    "output": "/home/amudhan/projects/myos/kernel/isr.o"
+  }
+]

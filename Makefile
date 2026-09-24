@@ -3,7 +3,8 @@ AS = i686-elf-as
 CFLAGS = -std=gnu99 -ffreestanding -O2 -Wall -Wextra -Iinclude
 LDFLAGS = -T linker.ld -ffreestanding -O2 -nostdlib -lgcc
 
-OBJS = boot/boot.o kernel/kernel.o kernel/gdt.o kernel/gdt_asm.o kernel/idt.o kernel/idt_asm.o kernel/isr_asm.o kernel/isr.o
+OBJS = boot/boot.o kernel/kernel.o kernel/gdt.o kernel/gdt_asm.o \
+       kernel/idt.o kernel/idt_asm.o kernel/isr.o kernel/isr_asm.o
 
 all: myos.bin
 
