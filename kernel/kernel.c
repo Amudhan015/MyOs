@@ -1,0 +1,25 @@
+// #include "../include/kernel/gdt.h"
+// #include "../include/kernel/idt.h"
+#include <kernel/gdt.h>
+#include <kernel/idt.h>
+#include <stdint.h>
+
+void kernel_main(void) {
+  gdt_install();
+  idt_install();
+
+  volatile uint16_t *vga = (uint16_t *)0xB8000;
+  const uint16_t blank = ((uint16_t)' ') | (0x0F << 8);
+
+  int x = 1 / 0;
+
+  // VGA text mode is 80 columns x 25 rows
+  for (int i = 0; i < 80 * 25; i++) {
+    vga[i] = blank;
+  }
+
+  const char *msg = "Hello, kernel!";
+  for (int i = 0; msg[i] != '\0'; i++) {
+    vga[i] = (uint16_t)msg[i] | (0x0F << 8);
+  }
+}
