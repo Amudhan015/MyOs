@@ -48,3 +48,19 @@ void pic_remap(void) {
   outb(PIC1_DATA, mask1);
   outb(PIC2_DATA, mask2);
 }
+
+void pic_unmask_irq(u8 irq_line) {
+  u16 port;
+
+  if (irq_line < 8) {
+    port = PIC1_DATA;
+  } else {
+    port = PIC2_DATA;
+    irq_line -= 8;
+  }
+
+  u8 value = inb(port) & ~(1 << irq_line);
+  outb(port, value);
+}
+
+u8 debug_read_pic1_mask(void) { return inb(PIC1_DATA); }

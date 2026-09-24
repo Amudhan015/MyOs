@@ -18,4 +18,9 @@ void kernel_main(void) {
   for (int i = 0; msg[i] != '\0'; i++) {
     vga[i] = (u16)msg[i] | (0x0F << 8);
   }
+
+  pic_unmask_irq(1);
+  pic_unmask_irq(0);
+
+  __asm__ volatile("sti");
 }

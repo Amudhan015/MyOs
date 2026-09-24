@@ -10,12 +10,12 @@
       "-Iinclude",
       "-c",
       "-o",
-      "kernel/kernel.o",
+      "build/kernel/kernel.o",
       "kernel/kernel.c"
     ],
     "directory": "/home/amudhan/projects/myos",
     "file": "/home/amudhan/projects/myos/kernel/kernel.c",
-    "output": "/home/amudhan/projects/myos/kernel/kernel.o"
+    "output": "/home/amudhan/projects/myos/build/kernel/kernel.o"
   },
   {
     "arguments": [
@@ -28,12 +28,12 @@
       "-Iinclude",
       "-c",
       "-o",
-      "kernel/gdt.o",
+      "build/kernel/gdt.o",
       "kernel/gdt.c"
     ],
     "directory": "/home/amudhan/projects/myos",
     "file": "/home/amudhan/projects/myos/kernel/gdt.c",
-    "output": "/home/amudhan/projects/myos/kernel/gdt.o"
+    "output": "/home/amudhan/projects/myos/build/kernel/gdt.o"
   },
   {
     "arguments": [
@@ -46,12 +46,12 @@
       "-Iinclude",
       "-c",
       "-o",
-      "kernel/idt.o",
+      "build/kernel/idt.o",
       "kernel/idt.c"
     ],
     "directory": "/home/amudhan/projects/myos",
     "file": "/home/amudhan/projects/myos/kernel/idt.c",
-    "output": "/home/amudhan/projects/myos/kernel/idt.o"
+    "output": "/home/amudhan/projects/myos/build/kernel/idt.o"
   },
   {
     "arguments": [
@@ -64,12 +64,12 @@
       "-Iinclude",
       "-c",
       "-o",
-      "kernel/isr.o",
+      "build/kernel/isr.o",
       "kernel/isr.c"
     ],
     "directory": "/home/amudhan/projects/myos",
     "file": "/home/amudhan/projects/myos/kernel/isr.c",
-    "output": "/home/amudhan/projects/myos/kernel/isr.o"
+    "output": "/home/amudhan/projects/myos/build/kernel/isr.o"
   },
   {
     "arguments": [
@@ -82,11 +82,47 @@
       "-Iinclude",
       "-c",
       "-o",
-      "kernel/pic.o",
+      "build/kernel/pic.o",
       "kernel/pic.c"
     ],
     "directory": "/home/amudhan/projects/myos",
     "file": "/home/amudhan/projects/myos/kernel/pic.c",
-    "output": "/home/amudhan/projects/myos/kernel/pic.o"
+    "output": "/home/amudhan/projects/myos/build/kernel/pic.o"
+  },
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "build/kernel/irq.o",
+      "kernel/irq.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/irq.c",
+    "output": "/home/amudhan/projects/myos/build/kernel/irq.o"
+  },
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "build/kernel/keyboard.o",
+      "kernel/keyboard.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/keyboard.c",
+    "output": "/home/amudhan/projects/myos/build/kernel/keyboard.o"
   }
 ]

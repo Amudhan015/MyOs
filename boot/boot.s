@@ -22,6 +22,5 @@ stack_top:
 _start:
 	mov $stack_top, %esp
 	call kernel_main
-	cli
 1:	hlt
 	jmp 1b
