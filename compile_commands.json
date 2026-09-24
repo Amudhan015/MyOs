@@ -214,5 +214,23 @@
     "directory": "/home/amudhan/projects/myos",
     "file": "/home/amudhan/projects/myos/kernel/kmalloc.c",
     "output": "/home/amudhan/projects/myos/build/kernel/kmalloc.o"
+  },
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "build/kernel/pit.o",
+      "kernel/pit.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/pit.c",
+    "output": "/home/amudhan/projects/myos/build/kernel/pit.o"
   }
 ]

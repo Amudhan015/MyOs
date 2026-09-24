@@ -1,6 +1,7 @@
 #include <kernel/int.h>
 #include <kernel/isr.h>
 #include <kernel/keyboard.h>
+#include <kernel/pit.h>
 
 #define PIC1_COMMAND 0x20
 #define PIC2_COMMAND 0xA0
@@ -11,7 +12,11 @@ static inline void outb(u16 port, u8 val) {
 }
 
 void irq_handler(struct registers regs) {
-  if (regs.int_no == 33) { // IRQ1, post-remap = keyboard
+  if (regs.int_no == 32) { // IRQ0, post-remap = PIT timer
+    pit_tick();
+  }
+
+  if (regs.int_no == 33) { // IRQ1 = keyboard
     keyboard_handler();
   }
 
