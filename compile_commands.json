@@ -160,5 +160,23 @@
     "directory": "/home/amudhan/projects/myos",
     "file": "/home/amudhan/projects/myos/kernel/serial.c",
     "output": "/home/amudhan/projects/myos/build/kernel/serial.o"
+  },
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "build/kernel/pmm.o",
+      "kernel/pmm.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/pmm.c",
+    "output": "/home/amudhan/projects/myos/build/kernel/pmm.o"
   }
 ]
