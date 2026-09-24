@@ -124,5 +124,41 @@
     "directory": "/home/amudhan/projects/myos",
     "file": "/home/amudhan/projects/myos/kernel/keyboard.c",
     "output": "/home/amudhan/projects/myos/build/kernel/keyboard.o"
+  },
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "build/kernel/terminal.o",
+      "kernel/terminal.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/terminal.c",
+    "output": "/home/amudhan/projects/myos/build/kernel/terminal.o"
+  },
+  {
+    "arguments": [
+      "/home/amudhan/opt/cross/bin/i686-elf-gcc",
+      "-std=gnu99",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "build/kernel/serial.o",
+      "kernel/serial.c"
+    ],
+    "directory": "/home/amudhan/projects/myos",
+    "file": "/home/amudhan/projects/myos/kernel/serial.c",
+    "output": "/home/amudhan/projects/myos/build/kernel/serial.o"
   }
 ]
