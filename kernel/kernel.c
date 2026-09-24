@@ -1,5 +1,6 @@
 #include <kernel/gdt.h>
 #include <kernel/idt.h>
+#include <kernel/kmalloc.h>
 #include <kernel/multiboot.h>
 #include <kernel/paging.h>
 #include <kernel/pic.h>
@@ -19,6 +20,8 @@ void kernel_main(struct multiboot_info *mb_info) {
 
   pmm_init(mb_info);
   paging_init();
+
+  kmalloc_init();
 
   pic_unmask_irq(0);
   pic_unmask_irq(1);

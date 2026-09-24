@@ -5,7 +5,7 @@ LDFLAGS = -T linker.ld -ffreestanding -O2 -nostdlib -lgcc
 
 SRCS_C = kernel/kernel.c kernel/gdt.c kernel/idt.c kernel/isr.c \
          kernel/pic.c kernel/irq.c kernel/keyboard.c kernel/terminal.c \
-		 kernel/serial.c kernel/pmm.c kernel/paging.c
+		 kernel/serial.c kernel/pmm.c kernel/paging.c kernel/kmalloc.c
 SRCS_S = boot/boot.s kernel/gdt_asm.s kernel/idt_asm.s \
          kernel/isr_asm.s kernel/irq_asm.s
 
