@@ -10,43 +10,29 @@
 #include <kernel/task.h>
 #include <kernel/terminal.h>
 
-void task_a(void) {
-  while (1) {
-    serial_writestring("A");
-  }
-}
+void kernel_main(struct multiboot_info* mb_info) {
+    gdt_install();
+    idt_install();
+    pic_remap();
 
-void task_b(void) {
-  while (1) {
-    serial_writestring("B");
-  }
-}
+    serial_initialize();
+    terminal_initialize();
+    terminal_writestring("Hello, kernel!\n");
 
-void kernel_main(struct multiboot_info *mb_info) {
-  gdt_install();
-  idt_install();
-  pic_remap();
+    pit_init(100);
 
-  serial_initialize();
-  terminal_initialize();
-  terminal_writestring("Hello, kernel!\n");
+    pmm_init(mb_info);
+    paging_init();
+    kmalloc_init();
 
-  pit_init(100);
+    tasking_init();
 
-  pmm_init(mb_info);
-  paging_init();
-  kmalloc_init();
+    // Only now is everything an interrupt handler might touch actually ready.
+    pic_unmask_irq(0);
+    pic_unmask_irq(1);
+    __asm__ volatile("sti");
 
-  tasking_init();
-  task_create(task_a);
-  task_create(task_b);
-
-  // Only now is everything an interrupt handler might touch actually ready.
-  pic_unmask_irq(0);
-  pic_unmask_irq(1);
-  __asm__ volatile("sti");
-
-  while (1) {
-    __asm__ volatile("hlt");
-  }
+    while (1) {
+        __asm__ volatile("hlt");
+    }
 }

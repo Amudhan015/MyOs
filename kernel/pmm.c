@@ -74,5 +74,13 @@ u32 pmm_alloc_frame(void) {
 
 void pmm_free_frame(u32 frame_addr) {
   u32 idx = frame_addr / FRAME_SIZE;
+  if (idx >= MAX_FRAMES) {
+    serial_writestring("pmm_free_frame: address out of range\n");
+    return;
+  }
+  if (!test_frame(idx)) {
+    serial_writestring("pmm_free_frame: double-free detected\n");
+    return;
+  }
   clear_frame(idx);
 }
